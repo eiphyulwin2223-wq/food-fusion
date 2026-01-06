@@ -57,7 +57,7 @@
                                         <input type="text" name="ingredients[0][name]" class="form-control" placeholder="Ingredient name" required>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="number" name="ingredients[0][quantity]" class="form-control" placeholder="Quantity" min="1" required>
+                                        <input type="text" name="ingredients[0][quantity]" class="form-control" placeholder="Quantity" required>
                                     </div>
                                     <div class="col-md-2">
                                         <button type="button" class="btn btn-danger remove-ingredient" disabled>Remove</button>

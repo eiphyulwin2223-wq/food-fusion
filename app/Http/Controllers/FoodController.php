@@ -77,7 +77,7 @@ class FoodController extends Controller
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'ingredients' => 'required|array|min:1',
             'ingredients.*.name' => 'required|string|max:255',
-            'ingredients.*.quantity' => 'required|integer|min:1',
+            'ingredients.*.quantity' => 'required',
         ]);
 
         // Start a database transaction
@@ -152,7 +152,7 @@ class FoodController extends Controller
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'ingredients' => 'required|array|min:1',
             'ingredients.*.name' => 'required|string|max:255',
-            'ingredients.*.quantity' => 'required|integer|min:1',
+            'ingredients.*.quantity' => 'required',
         ]);
 
         // Start a database transaction
