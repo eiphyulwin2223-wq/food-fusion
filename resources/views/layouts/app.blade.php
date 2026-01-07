@@ -67,6 +67,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('contact.index') }}">Contact Us</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('resources.index') }}">Resources</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('educational_resources.index') }}">Educational</a>
+                        </li>
                     </ul>
                     <ul class="navbar-nav">
                         @guest
@@ -112,5 +118,53 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     @yield('scripts')
+
+    <footer class="bg-light mt-5 py-4 border-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-3">Food Fusion</h5>
+                    <p class="text-muted mb-0">Discover and share delicious recipes from around the world. Your ultimate destination for culinary inspiration.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="{{ route('home') }}" class="text-decoration-none text-secondary">Home</a></li>
+                        <li class="mb-2"><a href="{{ route('foods.collection') }}" class="text-decoration-none text-secondary">Recipes</a></li>
+                        <li class="mb-2"><a href="{{ route('about.index') }}" class="text-decoration-none text-secondary">About Us</a></li>
+                        <li class="mb-2"><a href="{{ route('contact.index') }}" class="text-decoration-none text-secondary">Contact Us</a></li>
+                        <li class="mb-2"><a href="{{ route('resources.index') }}" class="text-decoration-none text-secondary">Resources</a></li>
+                        <li class="mb-2"><a href="{{ route('educational_resources.index') }}" class="text-decoration-none text-secondary">Educational</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-uppercase mb-3">Follow Us</h5>
+                    <div class="d-flex gap-3">
+                        <a href="https://facebook.com" target="_blank" class="text-decoration-none text-secondary fs-5" title="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="text-decoration-none text-secondary fs-5" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" class="text-decoration-none text-secondary fs-5" title="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" class="text-decoration-none text-secondary fs-5" title="Twitter">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="text-decoration-none text-secondary fs-5" title="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col text-center">
+                    <p class="text-muted mb-0">&copy; {{ date('Y') }} Food Fusion. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

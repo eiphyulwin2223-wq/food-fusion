@@ -8,6 +8,8 @@ use App\Http\Controllers\FoodController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ResourceController;
+use App\Http\Controllers\EducationalResourceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +58,13 @@ Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 // Contact Us Routes
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
+// Culinary Resources Route
+Route::get('/resources', [ResourceController::class, 'index'])->name('resources.index');
+Route::post('/resources', [ResourceController::class, 'store'])->name('resources.store');
+Route::delete('/resources/{resource}', [ResourceController::class, 'destroy'])->name('resources.destroy');
+
+// Educational Resources Route
+Route::get('/educational', [EducationalResourceController::class, 'index'])->name('educational_resources.index');
+Route::post('/educational', [EducationalResourceController::class, 'store'])->name('educational_resources.store');
+Route::delete('/educational/{resource}', [EducationalResourceController::class, 'destroy'])->name('educational_resources.destroy');
