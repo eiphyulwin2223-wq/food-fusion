@@ -1,20 +1,27 @@
 @extends('layouts.app')
 
-@section('title', 'Food Fusion - Recipe Collection')
+@section('title', 'Food Fusion - Community Cookbook')
 
 @section('content')
 <div class="container py-4">
     <div class="row mb-4">
         <div class="col-12">
-            <h1 class="text-center">Recipe Collection</h1>
-            <p class="text-center lead">Discover delicious recipes from our team</p>
+            <h1 class="text-center">Community Cookbook</h1>
+            <p class="text-center lead">Discover recipes shared by our community members</p>
+            @auth
+                <div class="text-center mt-3">
+                    <a href="{{ route('foods.create') }}" class="btn btn-primary">
+                        <i class="bi bi-plus-circle me-2"></i> Add New Recipe
+                    </a>
+                </div>
+            @endauth
         </div>
     </div>
 
     <div class="row mb-4">
         <div class="col-md-6 offset-md-3">
-            <form action="{{ route('foods.collection') }}" method="GET" class="d-flex">
-                <input type="text" name="search" class="form-control me-2" placeholder="Search recipes..." value="{{ request('search') }}">
+            <form action="{{ route('foods.community_cookbook') }}" method="GET" class="d-flex">
+                <input type="text" name="search" class="form-control me-2" placeholder="Search community recipes..." value="{{ request('search') }}">
                 <button type="submit" class="btn btn-outline-primary">Search</button>
             </form>
         </div>

@@ -37,8 +37,8 @@
                                     </form>
                                 @endif
                             @endauth
-                            <a href="{{ route('foods.index') }}" class="btn btn-outline-secondary btn-sm ms-2">
-                                Back to Recipes
+                            <a href="{{ $food->user->role === 'admin' ? route('foods.collection') : route('foods.community_cookbook') }}" class="btn btn-outline-secondary btn-sm ms-2">
+                                Back to {{ $food->user->role === 'admin' ? 'Recipes' : 'Community Cookbook' }}
                             </a>
                         </div>
                     </div>
@@ -71,7 +71,8 @@
                             {!! nl2br(e($food->recipe)) !!}
                         </div>
 
-                        <!-- Ratings Section -->
+                        <!-- Ratings Section - Only for member recipes -->
+                        @if($food->user->role === 'user')
                         <h5 class="mt-4">Ratings & Reviews</h5>
                         <div class="card-text mb-4">
                             <!-- Add Rating Form -->
@@ -203,6 +204,7 @@
                                 <p class="text-muted">No reviews yet. Be the first to review!</p>
                             @endif
                         </div>
+                        @endif
                     @else
                         <!-- Content for guests -->
                         <div class="alert alert-info mt-4">

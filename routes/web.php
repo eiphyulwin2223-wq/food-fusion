@@ -28,6 +28,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Food Routes
 Route::get('/recipes', [FoodController::class, 'collection'])->name('foods.collection');
 Route::get('/recipes/all', [FoodController::class, 'index'])->name('foods.index');
+Route::get('/community-cookbook', [FoodController::class, 'communityCookbook'])->name('foods.community_cookbook');
 Route::get('/foods/create', [FoodController::class, 'create'])->name('foods.create');
 Route::post('/foods', [FoodController::class, 'store'])->name('foods.store');
 Route::get('/foods/{food}', [FoodController::class, 'show'])->name('foods.show');

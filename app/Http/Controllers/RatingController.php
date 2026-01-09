@@ -27,6 +27,11 @@ class RatingController extends Controller
             'comment' => 'nullable|string|max:1000',
         ]);
 
+        // Check if the recipe is created by admin - admin recipes cannot be rated
+        if ($food->user->role === 'admin') {
+            return redirect()->back()->with('error', 'You cannot rate official recipes.');
+        }
+
         // Check if user has already rated this food
         $existingRating = Rating::where('food_id', $food->id)
             ->where('user_id', Auth::id())
