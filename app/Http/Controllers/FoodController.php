@@ -25,7 +25,9 @@ class FoodController extends Controller
      */
     public function index()
     {
-        $foods = Food::with('user')->latest()->get();
+        $foods = Food::with('user')->whereHas('user', function($q) {
+            $q->where('role', 'admin');
+        })->latest()->get();
         return view('foods.index', compact('foods'));
     }
 
@@ -34,7 +36,9 @@ class FoodController extends Controller
      */
     public function collection(Request $request)
     {
-        $query = Food::with('user')->latest();
+        $query = Food::with('user')->whereHas('user', function($q) {
+            $q->where('role', 'admin');
+        })->latest();
 
         if ($request->has('search')) {
             $search = $request->search;
@@ -46,6 +50,27 @@ class FoodController extends Controller
 
         $foods = $query->paginate(9);
         return view('foods.collection', compact('foods'));
+    }
+
+    /**
+     * Display the community cookbook page with pagination (member recipes only).
+     */
+    public function communityCookbook(Request $request)
+    {
+        $query = Food::with('user')->whereHas('user', function($q) {
+            $q->where('role', 'user');
+        })->latest();
+
+        if ($request->has('search')) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                  ->orWhere('description', 'like', "%{$search}%");
+            });
+        }
+
+        $foods = $query->paginate(9);
+        return view('foods.community-cookbook', compact('foods'));
     }
 
     /**

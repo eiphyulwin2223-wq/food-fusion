@@ -43,6 +43,50 @@
         .navbar {
             margin-bottom: 20px;
         }
+        
+        /* Nav Link Hover Effects */
+        .navbar-nav .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+            padding-bottom: 0.5rem;
+        }
+        
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: #0d6efd;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: #0d6efd !important;
+        }
+        
+        .navbar-nav .nav-link:hover::after {
+            width: 80%;
+        }
+        
+        /* Dropdown Toggle Hover */
+        .navbar-nav .dropdown-toggle:hover {
+            color: #0d6efd !important;
+        }
+        
+        /* Footer Links Hover */
+        footer a:hover {
+            color: #0d6efd !important;
+            transform: translateX(3px);
+            transition: all 0.3s ease;
+        }
+        
+        footer .fs-5:hover {
+            transform: scale(1.2);
+            transition: transform 0.3s ease;
+        }
     </style>
 </head>
 <body>
@@ -60,6 +104,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('foods.collection') }}">Recipes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('foods.community_cookbook') }}">Community Cookbook</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('about.index') }}">About Us</a>
@@ -131,6 +178,7 @@
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="{{ route('home') }}" class="text-decoration-none text-secondary">Home</a></li>
                         <li class="mb-2"><a href="{{ route('foods.collection') }}" class="text-decoration-none text-secondary">Recipes</a></li>
+                        <li class="mb-2"><a href="{{ route('foods.community_cookbook') }}" class="text-decoration-none text-secondary">Community Cookbook</a></li>
                         <li class="mb-2"><a href="{{ route('about.index') }}" class="text-decoration-none text-secondary">About Us</a></li>
                         <li class="mb-2"><a href="{{ route('contact.index') }}" class="text-decoration-none text-secondary">Contact Us</a></li>
                         <li class="mb-2"><a href="{{ route('resources.index') }}" class="text-decoration-none text-secondary">Resources</a></li>
